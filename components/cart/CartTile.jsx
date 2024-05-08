@@ -10,18 +10,19 @@ import { CartContext } from '../../context/CartContext'
 import axios from 'axios'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
-export default CartTile = ({item, onPress, select, cartItems}) => {
+export default CartTile = ({item, onPress, select, cartItems, loading}) => {
 
     const { cartData, setCartData } = useContext(CartContext);
     const { data } = fetchCart();
 
     const deleteCartItem = async () => {
+
         try {
     
             const token = await AsyncStorage.getItem('token');
             const id = await AsyncStorage.getItem('id');
         
-            const endpoint = `http://localhost:3000/api/cart/${item.id}`;
+            const endpoint = `http://localhost:3000/api/cart/${item._id}`;
     
             const headers = {
                 'Content-Type': 'application/json',
@@ -31,6 +32,9 @@ export default CartTile = ({item, onPress, select, cartItems}) => {
             await axios.delete(endpoint, {headers})
             
             cartItems.filter((product) => product.id !== item.id)
+
+            fetchCart();
+
         }
     
         catch(error) {
@@ -38,10 +42,8 @@ export default CartTile = ({item, onPress, select, cartItems}) => {
         }
 
         useEffect(() => {
-            fetchCart();
             setCartData(data);
-            console.log(cartData)
-        }, [cartData])
+        }, [])
     }
 
     return (
@@ -59,13 +61,12 @@ export default CartTile = ({item, onPress, select, cartItems}) => {
         </View>
         <TouchableOpacity
         style={{paddingLeft: 75}}
-        onPress={() => {}}>
+        onPress={() => deleteCartItem()}>
 
             <AntDesign
             name="delete"
             size={18}
             color={COLORS.red}
-            onPress={() => deleteCartItem()}
             />
 
         </TouchableOpacity>

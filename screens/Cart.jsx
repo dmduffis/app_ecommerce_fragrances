@@ -26,7 +26,7 @@ const [paymentUrl, setPaymentUrl] = useState('');
 
 useEffect(() => {
   setCartData(data)
-})
+}, [data])
 
 const cartItems = []
 
@@ -41,6 +41,8 @@ cartItems.push (
 }
 ) 
 }) 
+
+console.log(cartData);
 
 const createCheckout = async () => {
 
@@ -101,7 +103,7 @@ const onNavigationStateChange = (WebViewState) => {
 
        {loading ? (<ActivityIndicator/>) 
        : (<FlatList
-        data={data}
+        data={cartData}
         keyExtractor={(item) => item._id}
         renderItem={({ item }) => (
           <CartTile
