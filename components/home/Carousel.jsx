@@ -4,9 +4,8 @@ import { SliderBox } from 'react-native-image-slider-box';
 
 export default function Carousel() {
     const slides = [
-        "https://images.unsplash.com/photo-1541480551145-2370a440d585?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?q=80&w=874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "https://images.unsplash.com/photo-1604601600542-c751186db4a3?q=80&w=1152&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://res.cloudinary.com/dbob6dlo0/image/upload/v1715109444/Perfume%20App/slide_01_xaho06.png",
+        "https://res.cloudinary.com/dbob6dlo0/image/upload/v1715113687/Perfume%20App/slide_02_jy1noh.png",
         
     ]
 
@@ -17,7 +16,7 @@ export default function Carousel() {
         dotColor= "#2A4D50"
         inActiveDotColor = "#DDF0FF"
         ImageComponentStyle={{borderRadius: 15, width: "95%", marginTop: 15}}
-        autoplay
+        // autoplay
         circleLoop
         />
       </View>

@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
       height: 220,
       marginEnd: 5,
       borderRadius: 16,
-      backgroundColor: "#DDF0FF",
+      backgroundColor: "#FFF",
     },
     imageContainer: {
         flex: 1,
@@ -19,7 +19,8 @@ const styles = StyleSheet.create({
         overflow: "hidden",
     },
     image: {
-        aspectRatio: 1,
+        width: '100%',
+        height: '100%',
         resizeMode: 'cover'
     },
     details: {

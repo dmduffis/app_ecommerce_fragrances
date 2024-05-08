@@ -1,7 +1,9 @@
 import React, {useContext, useEffect, useState} from 'react';
 import { Text, TouchableOpacity, View, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import {Ionicons, Fontisto} from '@expo/vector-icons';
+import { Fontisto } from '@expo/vector-icons';
+import { SimpleLineIcons } from '@expo/vector-icons';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import styles from './home.style'; 
 import Welcome from '../components/home/Welcome';
 import Carousel from '../components/home/Carousel';
@@ -63,7 +65,7 @@ export default Home = ({navigation}) => {
               <Text style={styles.cartNumber}>{cartCount}</Text>
             </View>
             <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
-            <Fontisto name='shopping-bag' size={24} />
+            <SimpleLineIcons name='handbag' size={27} color="black" />
             </TouchableOpacity>
           </View>
           </View>
