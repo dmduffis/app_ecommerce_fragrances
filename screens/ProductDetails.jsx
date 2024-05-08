@@ -249,10 +249,10 @@ export default ProductDetails = ({navigation}) => {
           <View style={styles.location}>
             <View style={{flexDirection: "row"}}>
               <Ionicons 
-              name="checkbox-outline"
+              name="checkmark-circle-outline"
               size={20}
               />
-              <Text style={{marginTop: 3}}> Verificado | {item.supplier}</Text>
+              <Text style={{marginTop: 3}}> {item.supplier}</Text>
               </View>
 
               <View style={{flexDirection: "row"}}>

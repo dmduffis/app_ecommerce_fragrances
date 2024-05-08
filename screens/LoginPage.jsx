@@ -98,7 +98,7 @@ export default LoginPage = ({navigation}) => {
                     style={styles.cover}
                     />
                     <Text style={styles.title}>
-                        Luxurious Vacation Stays 
+                        Para Tu Cuidado Personal
                     </Text>
 
                     <Formik 
