@@ -39,10 +39,11 @@ const styles = StyleSheet.create({
     title: {
         fontFamily: 'bold',
         fontSize: 20,
+        color: COLORS.primary,
     },
 
     priceWrapper: {
-        backgroundColor: "#DDF0FF",
+        backgroundColor: COLORS.tertiary,
         borderRadius: SIZES.large,
 
     },
@@ -91,7 +92,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        backgroundColor: "#DDF0FF",
+        backgroundColor: COLORS.tertiary,
         padding: 5,
         borderRadius: SIZES.large,
         marginHorizontal: 12,
@@ -105,7 +106,7 @@ const styles = StyleSheet.create({
     },
     cartBtn: {
         width: SIZES.width * 0.7,
-        backgroundColor: "#000",
+        backgroundColor: COLORS.secondary,
         padding: SIZES.small/2,
         borderRadius: SIZES.large,
         marginLeft: 12,
@@ -116,13 +117,12 @@ const styles = StyleSheet.create({
         color: "#FAFAFC",
         marginLeft: 12,
     },
-
     addToCart: {
         width: 37,
         height: 37,
         borderRadius: 50,
         margin: SIZES.small,
-        backgroundColor: "#000",
+        backgroundColor: COLORS.primary,
         alignItems: 'center',
         justifyContent: 'center',
     }

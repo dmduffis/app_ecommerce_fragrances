@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         letterSpacing: 4,
         marginLeft: SIZES.small
     },
-    favContainer: (color) => ({
+    favContainer: {
         flex: 1,
         justifyContent: 'flex-start',
         alignItems: 'center',
@@ -27,10 +27,8 @@ const styles = StyleSheet.create({
         marginBottom: SIZES.xSmall,
         padding: SIZES.medium,
         borderRadius: SIZES.small,
-        backgroundColor: color,
-        ...SHADOWS.medium,
-        shadowColor: COLORS.secondary
-    }),
+        backgroundColor: '#FFF'
+    },
     imgContainer: {
         width: 70,
         borderRadius: SIZES.medium,
@@ -69,7 +67,7 @@ const styles = StyleSheet.create({
    payStatus: {
     paddingLeft: 8,
     paddingRight: 8,
-    backgroundColor: COLORS.lightWhite,
+    backgroundColor: COLORS.tertiary,
     borderRadius: 30,
     bottom: -10,
     position: 'absolute',

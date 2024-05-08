@@ -6,20 +6,22 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: "center",
         alignItems: 'center',
-        backgroundColor: "#DDF0FF",
+        backgroundColor: "#FFF",
         marginVertical: 16,
-        borderRadius: 16,
+        borderRadius: 30,
+        marginRight: 10,
+        marginLeft: 10,
         height: 50,
     },
     searchIcon: {
         marginHorizontal: 10,
-        color: "#F3F4F8",
+        color: COLORS.secondary,
     },
     searchWrapper: {
         flex: 1,
-        backgroundColor: "#DDF0FF",
+        backgroundColor: "#FFF",
         marginRight: 10,
-        borderRadius: 12,
+        borderRadius: 30,
     }, 
     searchInput: {
         fontFamily: 'regular',
@@ -29,16 +31,17 @@ const styles = StyleSheet.create({
     },
 
     searchBtn: {
-        width: 50,
-        height: "100%",
+        width: 45,
+        height: 45,
         color: "#2A4D50",
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 16,
+        borderRadius: 30,
+        marginRight: 5,
         backgroundColor: "#2A4D50",
     },
     cameraIcon: {
-        marginHorizontal: 10,
+        marginHorizontal: 9,
         color: "#aaa"
     },
     searchImage: {

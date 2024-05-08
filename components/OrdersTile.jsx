@@ -8,7 +8,7 @@ import { COLORS } from '../constants/theme'
 export default OrdersTile = ({item}) => {
 
     return (
-     <TouchableOpacity style={styles.favContainer(COLORS.secondary)}>
+     <TouchableOpacity style={styles.favContainer}>
         <View style={styles.imgContainer}>
             <Image
             source={{uri: item.productId.imageURL}}

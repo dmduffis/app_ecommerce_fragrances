@@ -65,7 +65,7 @@ export default Favorites = ({navigation}) => {
             <Ionicons
               name="chevron-back-circle"
               size={30}
-              color={COLORS.primary} 
+              color={COLORS.secondary} 
             />
         </TouchableOpacity>
 

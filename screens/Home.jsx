@@ -12,6 +12,7 @@ import ProductRow from '../components/products/ProductRow';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { CartContext } from '../context/CartContext';
 import fetchCart from '../hook/fetchCart';
+import { COLORS } from '../constants/theme';
 
 export default Home = ({navigation}) => {
 
@@ -65,7 +66,7 @@ export default Home = ({navigation}) => {
               <Text style={styles.cartNumber}>{cartCount}</Text>
             </View>
             <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
-            <SimpleLineIcons name='handbag' size={27} color="black" />
+            <SimpleLineIcons name='handbag' size={27} color={COLORS.primary} />
             </TouchableOpacity>
           </View>
           </View>

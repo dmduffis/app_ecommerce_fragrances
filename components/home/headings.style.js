@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { COLORS } from "../../constants/theme";
 
 
 const styles = StyleSheet.create({
@@ -14,6 +15,7 @@ const styles = StyleSheet.create({
     headerTitle: {
         fontFamily: 'semibold',
         fontSize: 20,
+        color: COLORS.primary,
     },
 })
 

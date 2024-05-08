@@ -7,6 +7,7 @@ import AddToCart from '../../hook/addToCart'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
+import { COLORS } from '../../constants/theme';
 
 export default ProductCardView = ({item}) => {
 
@@ -53,11 +54,11 @@ const handlePress = () => {
             </View>
             <View style={styles.details}>
               <Text style={styles.title} numberOfLines={1}>{item.title}</Text>
-              <Text style={styles.supplier} numberOfLines={1}>{item.description}</Text>
+              <Text style={styles.supplier} numberOfLines={1}>{item.supplier}</Text>
               <Text style={styles.price} numberOfLines={1}>${item.price}</Text>
             </View>
             <TouchableOpacity style={styles.addBtn} onPress={() => handlePress()}>
-                <Ionicons name='add-circle' size={30} color="#2A4D50"/>
+                <Ionicons name='add-circle' size={30} color={COLORS.secondary}/>
             </TouchableOpacity>
         </View>
     </TouchableOpacity>

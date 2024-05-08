@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './productDetails.style';
 import { useRoute } from '@react-navigation/native';
 import {Ionicons, SimpleLineIcons, MaterialCommunityIcons, Fontisto} from '@expo/vector-icons'
-import { SIZES } from '../constants/theme';
+import { COLORS, SIZES } from '../constants/theme';
 import AddToCart from '../hook/addToCart';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import WebView from 'react-native-webview';
@@ -186,10 +186,10 @@ export default ProductDetails = ({navigation}) => {
         <View style={styles.container}>
           <View style={styles.upperRow}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Ionicons name='chevron-back-circle' size={30}/>
+            <Ionicons name='chevron-back-circle' size={30} color={COLORS.secondary}/>
         </TouchableOpacity>
         <TouchableOpacity onPress={()=> handlePress()}>
-          <Ionicons name={favorites ? 'heart' : 'heart-outline'} size={30} color="#2A4D50"/>
+          <Ionicons name={favorites ? 'heart' : 'heart-outline'} size={30} color={COLORS.secondary}/>
         </TouchableOpacity>
       </View>
       <Image 
@@ -249,18 +249,18 @@ export default ProductDetails = ({navigation}) => {
           <View style={styles.location}>
             <View style={{flexDirection: "row"}}>
               <Ionicons 
-              name="location-outline"
+              name="checkbox-outline"
               size={20}
               />
-              <Text> {item.product_location}</Text>
+              <Text style={{marginTop: 3}}> Verificado | {item.supplier}</Text>
               </View>
 
               <View style={{flexDirection: "row"}}>
               <MaterialCommunityIcons
-              name="car-outline"
+              name="truck-delivery-outline"
               size={20}
               />
-              <Text> Free Shuttle</Text>
+              <Text style={{marginTop: 3}}> Envío Gratis </Text>
               </View>
               
           </View>

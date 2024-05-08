@@ -28,8 +28,6 @@ const styles = StyleSheet.create({
         padding: SIZES.medium,
         borderRadius: SIZES.small,
         backgroundColor: '#FFF',
-        ...SHADOWS.medium,
-        shadowColor: COLORS.secondary
     },
     imgContainer: {
         width: 70,

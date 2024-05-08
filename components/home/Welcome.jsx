@@ -14,8 +14,8 @@ export default Welcome = () => {
     return (
      <View>
        <View style={styles.container}>
-        <Text style={styles.welcomeTxt}>{""} Find The Most </Text>
-        <Text style={styles.welcomeTxtSecond}>{""} Luxurious Destinations </Text>
+        <Text style={styles.welcomeTxt}>{""} Cuidado y Calidad</Text>
+        <Text style={styles.welcomeTxtSecond}>{""} Para Un Mejor Tú </Text>
       </View>
 
       <View style={styles.searchContainer}>
@@ -27,13 +27,10 @@ export default Welcome = () => {
           style={styles.searchInput}
           value=''
           onPressIn={() => navigation.navigate ("Search")}
-          placeholder='what are you looking for?'
+          placeholder='Que producto estás buscando?'
           />
         </View>
         <View>
-      <TouchableOpacity style={styles.searchBtn}>
-        <Ionicons name='camera-outline' size={24} color="#F3F4F8"/>
-      </TouchableOpacity>
       </View>
       </View>      
      </View>

@@ -7,7 +7,7 @@ const Button = ({title, isValid, loading, onPress, cartLength}) => {
   return (
     <TouchableOpacity
     onPress={onPress}
-    style={styles.btnStyle(cartLength > 0 ? COLORS.primary : COLORS.gray)}>
+    style={styles.btnStyle(cartLength > 0 ? COLORS.secondary : COLORS.gray)}>
     
     {loading === false ? (
     <Text style={styles.btnTxt}>{title}</Text>

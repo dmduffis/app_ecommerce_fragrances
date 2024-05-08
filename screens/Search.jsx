@@ -18,7 +18,7 @@ export default Search = () => {
         const response = await axios.get(`http://localhost:3000/api/products/search/${searchKey}`)
         setSearchResults(response.data)
       } catch (error) {
-        console.log('failed to get products', error)
+        console.log('Estamos experimentando un problema.', error)
       }
   }
 
@@ -27,20 +27,17 @@ export default Search = () => {
     return (
       <SafeAreaView>
         <View style={styles.searchContainer}>
-        <TouchableOpacity>
-        <Ionicons name='camera-outline' size={24} style={styles.cameraIcon}/>
-        </TouchableOpacity>
         <View style={styles.searchWrapper}>
           <TextInput 
           style={styles.searchInput}
           value={searchKey}
           onChangeText={setSearchKey}
-          placeholder='what are you looking for?'
+          placeholder='Que producto estás buscando?'
           />
         </View>
         <View>
       <TouchableOpacity style={styles.searchBtn} onPress={() => handlePress()}>
-      <Feather name="search" size={24} style={styles.searchIcon}/>
+      <Feather name="search" size={23} style={styles.searchIcon}/>
       </TouchableOpacity>
       </View>
       </View> 

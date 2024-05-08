@@ -30,10 +30,8 @@ const styles = StyleSheet.create({
         marginVertical: 10
     },
     loginBtn: {
-        backgroundColor: COLORS.secondary,
+        backgroundColor: COLORS.tertiary,
         padding: 2,
-        borderWidth: 0.4,
-        borderColor: COLORS.primary,
         borderRadius: SIZES.xxLarge
     },
     menuText: {

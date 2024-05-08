@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { COLORS, SIZES } from '../../constants/index'
+import { COLORS, SIZES } from '../../constants/theme'
 
 const styles = StyleSheet.create({
     container: {
@@ -7,34 +7,36 @@ const styles = StyleSheet.create({
     },
     welcomeTxt: {
         fontFamily: 'bold',
-        fontSize: 25,
+        fontSize: 24,
         marginTop: 10,
         margin: 12,
-        color: '#333',
+        color: COLORS.primary
     },
     welcomeTxtSecond: {
         fontFamily: 'bold',
-        fontSize: 25,
+        fontSize: 30,
         marginTop: -10,
         margin: 12,
-        color: 'green',
+        color: COLORS.secondary,
     },
     searchContainer: {
         flexDirection: 'row',
         justifyContent: "center",
         alignItems: 'center',
-        backgroundColor: "#DDF0FF",
+        backgroundColor: "#FFF",
         marginVertical: 16,
-        borderRadius: 16,
+        marginLeft: 10,
+        marginRight: 10,
+        borderRadius: 30,
         height: 50,
     },
     searchIcon: {
         marginHorizontal: 10,
-        color: "#83829A",
+        color: COLORS.primary,
     },
     searchWrapper: {
         flex: 1,
-        backgroundColor: "#DDF0FF",
+        backgroundColor: "#FFF",
         marginRight: 10,
         borderRadius: 12,
     }, 
