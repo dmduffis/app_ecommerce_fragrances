@@ -11,16 +11,18 @@ import Button from '../components/Button'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import WebView from 'react-native-webview';
 import axios from "axios";
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
 
 export default Cart = ({navigation}) => {
 
 const  {data, loading, error, refetch, fetchData} = fetchCart();
+const {cartData, setCartData} = useContext(CartContext);
 
 const [selected, setSelected] = useState(null);
 const [select, setSelect] = useState(false)
 const[count, setCount] = useState(1);
 const [paymentUrl, setPaymentUrl] = useState('');
-const [cartData, setCartData] = useState([]);
 
 useEffect(() => {
   setCartData(data)
@@ -39,8 +41,6 @@ cartItems.push (
 }
 ) 
 }) 
-
-console.log(cartItems)
 
 const createCheckout = async () => {
 
@@ -106,6 +106,7 @@ const onNavigationStateChange = (WebViewState) => {
         renderItem={({ item }) => (
           <CartTile
             item={item}
+            cartItems = {cartItems}
           />
         )}
       />

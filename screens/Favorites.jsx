@@ -43,8 +43,6 @@ export default Favorites = ({navigation}) => {
   const checkFavorites = async () => {
     const id = await AsyncStorage.getItem('id');
     const favoritesId = `favorites${JSON.parse(id)}`;
-
-
     try {
       const favoritesObject = await AsyncStorage.getItem(favoritesId);
       if(favoritesObject !== null) {

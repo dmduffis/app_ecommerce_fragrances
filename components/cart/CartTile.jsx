@@ -1,12 +1,48 @@
 import { Text, View, Image} from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from './carttile.style'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { AntDesign } from '@expo/vector-icons'
 import { COLORS } from '../../constants/theme'
+import fetchCart from '../../hook/fetchCart'
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext'
+import axios from 'axios'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
+export default CartTile = ({item, onPress, select, cartItems}) => {
 
-export default CartTile = ({item, onPress, select}) => {
+    const { cartData, setCartData } = useContext(CartContext);
+    const { data } = fetchCart();
+
+    const deleteCartItem = async () => {
+        try {
+    
+            const token = await AsyncStorage.getItem('token');
+            const id = await AsyncStorage.getItem('id');
+        
+            const endpoint = `http://localhost:3000/api/cart/${item.id}`;
+    
+            const headers = {
+                'Content-Type': 'application/json',
+                'token': 'Bearer '+ JSON.parse(token)
+            }
+    
+            await axios.delete(endpoint, {headers})
+            
+            cartItems.filter((product) => product.id !== item.id)
+        }
+    
+        catch(error) {
+            throw new Error(error.message)
+        }
+
+        useEffect(() => {
+            fetchCart();
+            setCartData(data);
+            console.log(cartData)
+        }, [cartData])
+    }
 
     return (
      <TouchableOpacity style={styles.favContainer(!select ? "#FFF" : COLORS.secondary)} onPress={onPress}>
@@ -29,6 +65,7 @@ export default CartTile = ({item, onPress, select}) => {
             name="delete"
             size={18}
             color={COLORS.red}
+            onPress={() => deleteCartItem()}
             />
 
         </TouchableOpacity>
