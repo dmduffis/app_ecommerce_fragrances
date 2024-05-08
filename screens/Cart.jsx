@@ -30,7 +30,8 @@ useEffect(() => {
 
 const cartItems = []
 
-cartData.forEach((item) => {
+if (cartData !== undefined) {
+  cartData.forEach((item) => {
 cartItems.push (
   {
     name: item.cartItem.title,
@@ -40,7 +41,8 @@ cartItems.push (
     cartQuantity: item.quantity
 }
 ) 
-}) 
+})
+} 
 
 console.log(cartData);
 

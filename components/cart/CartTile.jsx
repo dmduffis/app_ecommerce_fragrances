@@ -1,50 +1,36 @@
 import { Text, View, Image} from 'react-native'
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import styles from './carttile.style'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { AntDesign } from '@expo/vector-icons'
 import { COLORS } from '../../constants/theme'
-import fetchCart from '../../hook/fetchCart'
-import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext'
-import axios from 'axios'
-import AsyncStorage from '@react-native-async-storage/async-storage'
+import fetchCart from '../../hook/fetchCart'
 
-export default CartTile = ({item, onPress, select, cartItems, loading}) => {
+export default CartTile = ({item, onPress, select, cartItems}) => {
 
-    const { cartData, setCartData } = useContext(CartContext);
+    const { setCartData, setCartCount } = useContext(CartContext);
     const { data } = fetchCart();
 
     const deleteCartItem = async () => {
-
-        try {
-    
-            const token = await AsyncStorage.getItem('token');
-            const id = await AsyncStorage.getItem('id');
         
-            const endpoint = `http://localhost:3000/api/cart/${item._id}`;
-    
-            const headers = {
-                'Content-Type': 'application/json',
-                'token': 'Bearer '+ JSON.parse(token)
+    const token = await AsyncStorage.getItem('token');
+    const id = await AsyncStorage.getItem('id');
+        
+     try {
+                
+        const response = await fetch(`http://localhost:3000/api/cart/${item._id}`, {
+        method: 'DELETE',
+        headers: {
+                  'Content-Type': 'application/json',
+                  'token': 'Bearer ' + JSON.parse(token)
+                }
+            })
             }
-    
-            await axios.delete(endpoint, {headers})
-            
-            cartItems.filter((product) => product.id !== item.id)
-
-            fetchCart();
-
+            catch(error) {
+            console.log(error)
         }
-    
-        catch(error) {
-            throw new Error(error.message)
-        }
-
-        useEffect(() => {
-            setCartData(data);
-        }, [])
-    }
+     }
 
     return (
      <TouchableOpacity style={styles.favContainer(!select ? "#FFF" : COLORS.secondary)} onPress={onPress}>

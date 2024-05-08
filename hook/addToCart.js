@@ -10,7 +10,7 @@ export default AddToCart = async (productId, quantity) => {
     try {
 
         const token = await AsyncStorage.getItem('token');
-        const id = await AsyncStorage.getItem('token');
+        const id = await AsyncStorage.getItem('id');
     
         const endpoint = 'http://localhost:3000/api/cart';
 
