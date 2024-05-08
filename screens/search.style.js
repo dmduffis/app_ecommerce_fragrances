@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     },
     searchIcon: {
         marginHorizontal: 10,
-        color: COLORS.secondary,
+        color: '#FFF',
     },
     searchWrapper: {
         flex: 1,
@@ -38,11 +38,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 30,
         marginRight: 5,
-        backgroundColor: "#2A4D50",
-    },
-    cameraIcon: {
-        marginHorizontal: 9,
-        color: "#aaa"
+        backgroundColor: COLORS.secondary,
     },
     searchImage: {
         resizeMode: "contain",

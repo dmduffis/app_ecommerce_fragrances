@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { COLORS } from "../../constants/theme";
 
 
 const styles = StyleSheet.create({
@@ -30,6 +31,7 @@ const styles = StyleSheet.create({
         fontFamily: 'bold',
         fontSize: 17,
         marginBottom: 2,
+        color: COLORS.primary,
     },
     supplier: {
         fontFamily: 'regular',
@@ -38,6 +40,7 @@ const styles = StyleSheet.create({
     price: {
         fontFamily: 'bold',
         fontSize: 17,
+        color: COLORS.primary,
     },
     addBtn: {
         position: 'absolute',
