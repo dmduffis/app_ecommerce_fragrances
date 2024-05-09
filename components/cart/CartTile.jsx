@@ -2,6 +2,7 @@ import { Text, View, Image} from 'react-native'
 import React, { useEffect, useContext, useState } from 'react'
 import styles from './carttile.style'
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import {SimpleLineIcons} from '@expo/vector-icons'
 import { COLORS } from '../../constants/theme'
 import { CartContext } from '../../context/CartContext'
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -50,7 +51,7 @@ export default CartTile = ({item, onPress, select, cartItems, refetch, data}) =>
             <Text numberOfLines={1} style={styles.supplier}>{item.cartItem.supplier}</Text>
             <Text numberOfLines={1} style={styles.price}>${(item.cartItem.price * itemQuantity).toFixed(2)}</Text>
         </View>
-        <View style={{display: 'flex', flexDirection: 'row', gap: 20}}>
+        <View style={{display: 'flex', flexDirection: 'row', gap: 10}}>
             <TouchableOpacity onPress={() => {
                 if (itemQuantity > 1) {
                     decreaseCartItemQuantity(item.cartItem._id, 1); 
@@ -62,15 +63,19 @@ export default CartTile = ({item, onPress, select, cartItems, refetch, data}) =>
                 }
                 }
                 }>
-                <Text>-</Text>
+                <SimpleLineIcons 
+              name='minus'
+              size={20} />
             </TouchableOpacity>
-                    <Text>{itemQuantity}</Text>
+                    <Text style={{fontSize: 15}}>{itemQuantity}</Text>
             <TouchableOpacity onPress={() => {
                 addToCart(item.cartItem._id, 1);
                 setItemQuantity(prevQuantity => prevQuantity + 1);
                 setCartCount(prevCount => prevCount + 1)
                 }}>
-                <Text>+</Text>
+                <SimpleLineIcons 
+              name='plus'
+              size={20} />
             </TouchableOpacity>
         </View>
      </TouchableOpacity>

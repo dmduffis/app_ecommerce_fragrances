@@ -43,7 +43,7 @@ cartItems.push (
 })
 } 
 
-console.log(cartData);
+// console.log(cartData);
 
 const createCheckout = async () => {
 
