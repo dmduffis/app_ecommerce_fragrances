@@ -110,7 +110,9 @@ const onNavigationStateChange = (WebViewState) => {
         renderItem={({ item }) => (
           <CartTile
             item={item}
+            data = {data}
             cartItems = {cartItems}
+            refetch = {refetch}
           />
         )}
       />

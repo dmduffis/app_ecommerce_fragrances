@@ -6,31 +6,36 @@ import { AntDesign } from '@expo/vector-icons'
 import { COLORS } from '../../constants/theme'
 import { CartContext } from '../../context/CartContext'
 import fetchCart from '../../hook/fetchCart'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
-export default CartTile = ({item, onPress, select, cartItems}) => {
+export default CartTile = ({item, onPress, select, cartItems, refetch, data}) => {
 
     const { setCartData, setCartCount } = useContext(CartContext);
-    const { data } = fetchCart();
 
     const deleteCartItem = async () => {
         
-    const token = await AsyncStorage.getItem('token');
-    const id = await AsyncStorage.getItem('id');
+        try {
+
+            const id = await AsyncStorage.getItem('id');
+            const token = await AsyncStorage.getItem('token');
         
-     try {
-                
-        const response = await fetch(`http://localhost:3000/api/cart/${item._id}`, {
-        method: 'DELETE',
-        headers: {
-                  'Content-Type': 'application/json',
-                  'token': 'Bearer ' + JSON.parse(token)
-                }
+            const response = await fetch(`http://localhost:3000/api/cart/${item._id}`, {
+              method: 'DELETE',
+              headers: {
+                'Content-Type': 'application/json',
+                'token': 'Bearer ' + JSON.parse(token)
+              }
             })
+
+            cartItems.filter((product) => product._id !== item._id) 
+            refetch();
+            setCartData(data);
+
             }
-            catch(error) {
+          catch(error) {
             console.log(error)
+          }
         }
-     }
 
     return (
      <TouchableOpacity style={styles.favContainer(!select ? "#FFF" : COLORS.secondary)} onPress={onPress}>
