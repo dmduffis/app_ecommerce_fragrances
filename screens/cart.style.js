@@ -44,6 +44,22 @@ const styles = StyleSheet.create({
         borderRadius: SIZES.small,
         resizeMode: 'cover'
     },
+    subtotalWrapper: {
+        paddingTop: 20,
+        display: 'flex',
+    },
+    subtotalTxt: {
+        textAlign: 'right',
+        fontFamily: 'semibold',
+        fontSize: 16,
+        color: COLORS.gray,
+    },
+    subtotalNumber: {
+        textAlign: 'right',
+        fontFamily: 'semibold',
+        fontSize: 22,
+        color: COLORS.primary
+    }
 });
 
 export default styles

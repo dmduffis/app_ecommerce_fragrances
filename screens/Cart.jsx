@@ -16,7 +16,7 @@ import { CartContext } from '../context/CartContext';
 export default Cart = ({navigation}) => {
 
 const  {data, loading, error, refetch, fetchData} = fetchCart();
-const {cartData, setCartData} = useContext(CartContext);
+const {cartData, setCartData, subTotal, setSubTotal} = useContext(CartContext);
 
 const [selected, setSelected] = useState(null);
 const [select, setSelect] = useState(false)
@@ -26,6 +26,10 @@ const [paymentUrl, setPaymentUrl] = useState('');
 useEffect(() => {
   setCartData(data)
 }, [data])
+
+useEffect(() => {
+  setSubTotal(subTotalCount());
+}, [])
 
 const cartItems = []
 
@@ -42,6 +46,14 @@ cartItems.push (
 ) 
 })
 } 
+
+let subTotalCount = () => {
+  let totalCount = 0;
+  for (let i = 0; i < cartData.length; i++) {
+    totalCount += (cartData[i].cartItem.price * cartData[i].quantity)
+  }
+  return totalCount
+}
 
 // console.log(cartData);
 
@@ -108,7 +120,7 @@ const onNavigationStateChange = (WebViewState) => {
         keyExtractor={(item) => item._id}
         renderItem={({ item }) => (
           <CartTile
-            item={item}
+            item= {item}
             data = {data}
             cartItems = {cartItems}
             refetch = {refetch}
@@ -116,6 +128,11 @@ const onNavigationStateChange = (WebViewState) => {
         )}
       />
     )}
+
+      <View style={styles.subtotalWrapper}>
+      <Text style={styles.subtotalTxt}>Subtotal</Text>
+      <Text style={styles.subtotalNumber}>{subTotal.toFixed(2)}</Text>
+      </View>
 
     
         <Button title={'Checkout'}

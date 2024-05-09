@@ -11,7 +11,7 @@ import decreaseCartItemQuantity from '../../hook/decreaseCartItemQuantity'
 
 export default CartTile = ({item, onPress, select, cartItems, refetch, data}) => {
 
-    const { setCartData, setCartCount } = useContext(CartContext);
+    const { setCartData, setCartCount, subTotal, setSubTotal } = useContext(CartContext);
     const[itemQuantity, setItemQuantity] = useState(item.quantity)
 
     const deleteCartItem = async () => {
@@ -56,7 +56,8 @@ export default CartTile = ({item, onPress, select, cartItems, refetch, data}) =>
                 if (itemQuantity > 1) {
                     decreaseCartItemQuantity(item.cartItem._id, 1); 
                     setItemQuantity(prevQuantity => prevQuantity - 1);
-                    setCartCount(prevCount => prevCount -1)
+                    setCartCount(prevCount => prevCount - 1)
+                    setSubTotal(prevTotal => (prevTotal -= item.cartItem.price))
                 } else {
                     deleteCartItem();
                     setCartCount(prevCount => prevCount -1)
@@ -72,6 +73,7 @@ export default CartTile = ({item, onPress, select, cartItems, refetch, data}) =>
                 addToCart(item.cartItem._id, 1);
                 setItemQuantity(prevQuantity => prevQuantity + 1);
                 setCartCount(prevCount => prevCount + 1)
+                setSubTotal(prevTotal => (prevTotal += item.cartItem.price))
                 }}>
                 <SimpleLineIcons 
               name='plus'

@@ -6,13 +6,16 @@ const CartProvider = ({children}) => {
 
 const [cartCount, setCartCount] = useState(0);
 const [cartData, setCartData] = useState([]);
+const [subTotal, setSubTotal] = useState(0);
 
 return (
     <CartContext.Provider value={{
         cartCount,
         setCartCount,
         cartData,
-        setCartData
+        setCartData,
+        subTotal,
+        setSubTotal
     }}>
         {children}
     </CartContext.Provider>
