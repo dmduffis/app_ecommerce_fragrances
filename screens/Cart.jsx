@@ -119,7 +119,7 @@ const onNavigationStateChange = (WebViewState) => {
 
     
         <Button title={'Checkout'}
-        onPress={()=> createCheckout()}
+        onPress={() => createCheckout()}
         loading={loading}
         cartLength={cartData.length}
         />

@@ -31,7 +31,6 @@ export default CartTile = ({item, onPress, select, cartItems, refetch, data}) =>
             cartItems.filter((product) => product._id !== item._id) 
             refetch();
             setCartData(data);
-
             }
           catch(error) {
             console.log(error)
@@ -52,11 +51,25 @@ export default CartTile = ({item, onPress, select, cartItems, refetch, data}) =>
             <Text numberOfLines={1} style={styles.price}>${(item.cartItem.price * itemQuantity).toFixed(2)}</Text>
         </View>
         <View style={{display: 'flex', flexDirection: 'row', gap: 20}}>
-            <TouchableOpacity onPress={() => {decreaseCartItemQuantity(item.cartItem._id, 1); setItemQuantity(prevQuantity => prevQuantity - 1)}}>
+            <TouchableOpacity onPress={() => {
+                if (itemQuantity > 1) {
+                    decreaseCartItemQuantity(item.cartItem._id, 1); 
+                    setItemQuantity(prevQuantity => prevQuantity - 1);
+                    setCartCount(prevCount => prevCount -1)
+                } else {
+                    deleteCartItem();
+                    setCartCount(prevCount => prevCount -1)
+                }
+                }
+                }>
                 <Text>-</Text>
             </TouchableOpacity>
                     <Text>{itemQuantity}</Text>
-            <TouchableOpacity onPress={() => {addToCart(item.cartItem._id, 1); setItemQuantity(prevQuantity => prevQuantity + 1)}}>
+            <TouchableOpacity onPress={() => {
+                addToCart(item.cartItem._id, 1);
+                setItemQuantity(prevQuantity => prevQuantity + 1);
+                setCartCount(prevCount => prevCount + 1)
+                }}>
                 <Text>+</Text>
             </TouchableOpacity>
         </View>
