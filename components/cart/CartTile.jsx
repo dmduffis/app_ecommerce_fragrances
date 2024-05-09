@@ -1,16 +1,17 @@
 import { Text, View, Image} from 'react-native'
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
 import styles from './carttile.style'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import { AntDesign } from '@expo/vector-icons'
 import { COLORS } from '../../constants/theme'
 import { CartContext } from '../../context/CartContext'
-import fetchCart from '../../hook/fetchCart'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import addToCart from '../../hook/addToCart'
+import decreaseCartItemQuantity from '../../hook/decreaseCartItemQuantity'
 
 export default CartTile = ({item, onPress, select, cartItems, refetch, data}) => {
 
     const { setCartData, setCartCount } = useContext(CartContext);
+    const[itemQuantity, setItemQuantity] = useState(item.quantity)
 
     const deleteCartItem = async () => {
         
@@ -48,19 +49,17 @@ export default CartTile = ({item, onPress, select, cartItems, refetch, data}) =>
         <View style={styles.txtContainer}>
             <Text numberOfLines={1} style={styles.productTxt}>{item.cartItem.title}</Text>
             <Text numberOfLines={1} style={styles.supplier}>{item.cartItem.supplier}</Text>
-            <Text numberOfLines={1} style={styles.price}>${(item.cartItem.price * item.quantity).toFixed(2)}    Qty: {item.quantity}</Text>
+            <Text numberOfLines={1} style={styles.price}>${(item.cartItem.price * itemQuantity).toFixed(2)}</Text>
         </View>
-        <TouchableOpacity
-        style={{paddingLeft: 75}}
-        onPress={() => deleteCartItem()}>
-
-            <AntDesign
-            name="delete"
-            size={18}
-            color={COLORS.red}
-            />
-
-        </TouchableOpacity>
+        <View style={{display: 'flex', flexDirection: 'row', gap: 20}}>
+            <TouchableOpacity onPress={() => {decreaseCartItemQuantity(item.cartItem._id, 1); setItemQuantity(prevQuantity => prevQuantity - 1)}}>
+                <Text>-</Text>
+            </TouchableOpacity>
+                    <Text>{itemQuantity}</Text>
+            <TouchableOpacity onPress={() => {addToCart(item.cartItem._id, 1); setItemQuantity(prevQuantity => prevQuantity + 1)}}>
+                <Text>+</Text>
+            </TouchableOpacity>
+        </View>
      </TouchableOpacity>
     )
 }

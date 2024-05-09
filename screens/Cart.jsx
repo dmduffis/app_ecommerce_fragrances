@@ -10,7 +10,6 @@ import CartTile from '../components/cart/CartTile';
 import Button from '../components/Button'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import WebView from 'react-native-webview';
-import axios from "axios";
 import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 
