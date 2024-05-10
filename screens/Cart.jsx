@@ -24,12 +24,9 @@ const[count, setCount] = useState(1);
 const [paymentUrl, setPaymentUrl] = useState('');
 
 useEffect(() => {
-  setCartData(data)
+  setCartData(data);
+  subTotalCount();
 }, [data])
-
-useEffect(() => {
-  setSubTotal(subTotalCount());
-}, [])
 
 const cartItems = []
 
@@ -48,11 +45,11 @@ cartItems.push (
 } 
 
 let subTotalCount = () => {
-  let totalCount = 0;
-  for (let i = 0; i < cartData.length; i++) {
-    totalCount += (cartData[i].cartItem.price * cartData[i].quantity)
+  let subTotalCount = 0;
+  for (let i = 0; i < data.length; i++) {
+    subTotalCount += (parseInt(data[i].cartItem.price) * data[i].quantity)
+    setSubTotal(subTotalCount)
   }
-  return totalCount
 }
 
 // console.log(cartData);

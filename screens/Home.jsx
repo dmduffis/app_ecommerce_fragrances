@@ -18,7 +18,7 @@ export default Home = ({navigation}) => {
 
   const  {data, loading, error, refetch, fetchData} = fetchCart();
 
-  const { cartCount, setCartCount } = useContext(CartContext);
+  const { cartCount, setCartCount, subTotal, setSubTotal} = useContext(CartContext);
 
   const [userData, setUserData] = useState(null)
   const [userLogin, setUserLogin] = useState(false)
@@ -26,6 +26,8 @@ export default Home = ({navigation}) => {
   useEffect(() => {
     checkExistingUser();
   })
+
+
 
   useEffect(() => {
     let quantity = 0;

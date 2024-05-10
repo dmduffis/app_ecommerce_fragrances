@@ -39,7 +39,7 @@ export default CartTile = ({item, onPress, select, cartItems, refetch, data}) =>
         }
 
     return (
-     <TouchableOpacity style={styles.favContainer(!select ? "#FFF" : COLORS.secondary)} onPress={onPress}>
+      itemQuantity === 0 ? null : (<TouchableOpacity style={styles.favContainer(!select ? "#FFF" : COLORS.secondary)} onPress={onPress} >
         <View style={styles.imgContainer}>
             <Image
             source={{uri: item.cartItem.imageURL}}
@@ -49,18 +49,19 @@ export default CartTile = ({item, onPress, select, cartItems, refetch, data}) =>
         <View style={styles.txtContainer}>
             <Text numberOfLines={1} style={styles.productTxt}>{item.cartItem.title}</Text>
             <Text numberOfLines={1} style={styles.supplier}>{item.cartItem.supplier}</Text>
-            <Text numberOfLines={1} style={styles.price}>${(item.cartItem.price * itemQuantity).toFixed(2)}</Text>
+            <Text numberOfLines={1} style={styles.price}>${(parseInt(item.cartItem.price) * itemQuantity).toFixed(2)}</Text>
         </View>
         <View style={{display: 'flex', flexDirection: 'row', gap: 10}}>
             <TouchableOpacity onPress={() => {
                 if (itemQuantity > 1) {
                     decreaseCartItemQuantity(item.cartItem._id, 1); 
-                    setItemQuantity(prevQuantity => prevQuantity - 1);
-                    setCartCount(prevCount => prevCount - 1)
-                    setSubTotal(prevTotal => (prevTotal -= item.cartItem.price))
+                    setItemQuantity(prevQuantity => prevQuantity > 0 ? prevQuantity - 1 : 0);
+                    setCartCount(prevCount => prevCount > 0 ? prevCount - 1 : 0)
+                    setSubTotal(prevTotal => (prevTotal -= parseInt(item.cartItem.price)))
                 } else {
                     deleteCartItem();
-                    setCartCount(prevCount => prevCount -1)
+                    setCartCount(prevCount => prevCount > 0 ? prevCount - 1 : 0)
+                    setSubTotal(prevTotal => (prevTotal -= parseInt(item.cartItem.price)))
                 }
                 }
                 }>
@@ -73,13 +74,13 @@ export default CartTile = ({item, onPress, select, cartItems, refetch, data}) =>
                 addToCart(item.cartItem._id, 1);
                 setItemQuantity(prevQuantity => prevQuantity + 1);
                 setCartCount(prevCount => prevCount + 1)
-                setSubTotal(prevTotal => (prevTotal += item.cartItem.price))
+                setSubTotal(prevTotal => (prevTotal += parseInt(item.cartItem.price)))
                 }}>
                 <SimpleLineIcons 
               name='plus'
               size={20} />
             </TouchableOpacity>
         </View>
-     </TouchableOpacity>
+     </TouchableOpacity>)
     )
 }
