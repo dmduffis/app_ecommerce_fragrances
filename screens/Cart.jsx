@@ -47,7 +47,7 @@ cartItems.push (
 let subTotalCount = () => {
   let subTotalCount = 0;
   for (let i = 0; i < data.length; i++) {
-    subTotalCount += (parseInt(data[i].cartItem.price) * data[i].quantity)
+    subTotalCount += (parseFloat(data[i].cartItem.price) * data[i].quantity)
     setSubTotal(subTotalCount)
   }
 }
@@ -128,7 +128,7 @@ const onNavigationStateChange = (WebViewState) => {
 
       <View style={styles.subtotalWrapper}>
       <Text style={styles.subtotalTxt}>Subtotal</Text>
-      <Text style={styles.subtotalNumber}>{subTotal.toFixed(2)}</Text>
+      <Text style={styles.subtotalNumber}>${subTotal.toFixed(2)}</Text>
       </View>
 
     
