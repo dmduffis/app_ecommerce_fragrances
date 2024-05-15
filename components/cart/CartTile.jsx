@@ -1,5 +1,5 @@
 import { Text, View, Image} from 'react-native'
-import React, { useEffect, useContext, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import styles from './carttile.style'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import {SimpleLineIcons} from '@expo/vector-icons'
@@ -8,6 +8,7 @@ import { CartContext } from '../../context/CartContext'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import addToCart from '../../hook/addToCart'
 import decreaseCartItemQuantity from '../../hook/decreaseCartItemQuantity'
+import { Toast } from 'toastify-react-native'
 
 export default CartTile = ({item, onPress, select, cartItems, refetch, data}) => {
 
@@ -59,9 +60,10 @@ export default CartTile = ({item, onPress, select, cartItems, refetch, data}) =>
                     setCartCount(prevCount => prevCount > 0 ? prevCount - 1 : 0)
                     setSubTotal(prevTotal => (prevTotal -= parseFloat(item.cartItem.price)))
                 } else {
-                    deleteCartItem();
                     setCartCount(prevCount => prevCount > 0 ? prevCount - 1 : 0)
+                    deleteCartItem();
                     setSubTotal(prevTotal => (prevTotal -= parseFloat(item.cartItem.price)))
+                    Toast.info('El producto ha sido removido del carrito.')
                 }
                 }
                 }>

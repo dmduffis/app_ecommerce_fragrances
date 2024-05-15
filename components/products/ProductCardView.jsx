@@ -4,6 +4,7 @@ import styles from './productCardView.style'
 import {Ionicons} from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import AddToCart from '../../hook/addToCart'
+import addToCartNotify from '../../hook/addToCartNotify';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
@@ -37,7 +38,7 @@ const handlePress = () => {
   if(!isLoggedIn) {
     navigation.navigate('Login');
   } else {
-    AddToCart(item._id);
+    addToCartNotify(item._id, 1);
     setCartCount(prevCount => prevCount + 1)
   }
 }

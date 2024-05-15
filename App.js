@@ -6,6 +6,8 @@ import { useCallback } from 'react';
 import BottomTabNavigation from './navigation/BottomTabNavigation';
 import { Cart, ProductDetails, Home, LoginPage, Orders, SignUp, Favorites, Products } from './screens';
 import { CartProvider } from './context/CartContext';
+import ToastManager from 'toastify-react-native';
+import { StyleSheet } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,6 +36,12 @@ export default function App() {
   return (
 
     <CartProvider>
+    <ToastManager 
+      position='top'
+      positionValue={100}
+      textStyle={styles.notifyTxt}
+      width={350}
+    />
     <NavigationContainer onLayout={onLayoutRootView}>
       <Stack.Navigator>
         <Stack.Screen 
@@ -96,4 +104,11 @@ export default function App() {
     </CartProvider>
   );
 }
+
+styles = StyleSheet.create({
+  notifyTxt: {
+    fontSize: 12.5,
+    fontFamily: 'regular'
+  }
+})
 
