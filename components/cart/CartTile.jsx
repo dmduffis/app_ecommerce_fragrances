@@ -7,7 +7,7 @@ import { CartContext } from '../../context/CartContext'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import addToCart from '../../hook/addToCart'
 import decreaseCartItemQuantity from '../../hook/decreaseCartItemQuantity'
-import { Toast } from 'toastify-react-native'
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default CartTile = ({item, onPress, select, cartItems, refetch, data}) => {
 
@@ -62,15 +62,25 @@ export default CartTile = ({item, onPress, select, cartItems, refetch, data}) =>
                     setCartCount(prevCount => prevCount > 0 ? prevCount - 1 : 0)
                     deleteCartItem();
                     setSubTotal(prevTotal => (prevTotal -= parseFloat(item.cartItem.price)))
-                    Toast.info('El producto ha sido removido del carrito.')
                 }
                 }
                 }>
-                <SimpleLineIcons 
+              
+              {itemQuantity === 1?
+              
+              <Ionicons
+              name='trash-outline'
+              size={20} />
+              
+              :<SimpleLineIcons 
               name='minus'
               size={20} />
+
+            }
             </TouchableOpacity>
-                    <Text style={{fontSize: 15}}>{itemQuantity}</Text>
+            
+            <Text style={{fontSize: 15}}>{itemQuantity}</Text>
+            
             <TouchableOpacity onPress={() => {
                 addToCart(item.cartItem._id, 1);
                 setItemQuantity(prevQuantity => prevQuantity + 1);
