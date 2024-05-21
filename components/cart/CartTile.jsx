@@ -1,5 +1,5 @@
 import { Text, View, Image, TouchableOpacity } from 'react-native'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styles from './carttile.style'
 import {SimpleLineIcons} from '@expo/vector-icons'
 import { COLORS } from '../../constants/theme'
@@ -13,6 +13,7 @@ export default CartTile = ({item, onPress, select, cartItems, refetch, data}) =>
 
     const { setCartData, setCartCount, subTotal, setSubTotal } = useContext(CartContext);
     const[itemQuantity, setItemQuantity] = useState(item.quantity)
+
 
     const deleteCartItem = async () => {
         
@@ -28,10 +29,7 @@ export default CartTile = ({item, onPress, select, cartItems, refetch, data}) =>
                 'token': 'Bearer ' + JSON.parse(token)
               }
             })
-
             cartItems.filter((product) => product._id !== item._id) 
-            refetch();
-            setCartData(data);
             }
           catch(error) {
             console.log(error)
@@ -39,7 +37,7 @@ export default CartTile = ({item, onPress, select, cartItems, refetch, data}) =>
         }
 
     return (
-      itemQuantity === 0 ? null : (<TouchableOpacity style={styles.favContainer(!select ? "#FFF" : COLORS.secondary)} onPress={onPress} >
+     itemQuantity > 0 && <TouchableOpacity style={styles.favContainer(!select ? "#FFF" : COLORS.secondary)} onPress={onPress} >
         <View style={styles.imgContainer}>
             <Image
             source={{uri: item.cartItem.imageURL}}
@@ -61,6 +59,7 @@ export default CartTile = ({item, onPress, select, cartItems, refetch, data}) =>
                 } else {
                     setCartCount(prevCount => prevCount > 0 ? prevCount - 1 : 0)
                     deleteCartItem();
+                    setItemQuantity(prevQuantity => prevQuantity > 0 ? prevQuantity - 1 : 0);
                     setSubTotal(prevTotal => (prevTotal -= parseFloat(item.cartItem.price)))
                 }
                 }
@@ -93,5 +92,4 @@ export default CartTile = ({item, onPress, select, cartItems, refetch, data}) =>
             </TouchableOpacity>
         </View>
      </TouchableOpacity>)
-    )
 }

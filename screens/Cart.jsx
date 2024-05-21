@@ -127,7 +127,7 @@ const onNavigationStateChange = (WebViewState) => {
 
       <View style={styles.subtotalWrapper}>
       <Text style={styles.subtotalTxt}>Subtotal</Text>
-      <Text style={styles.subtotalNumber}>${subTotal.toFixed(2)}</Text>
+      <Text style={styles.subtotalNumber}>${Math.abs(subTotal).toFixed(2)}</Text>
       </View>
 
     
