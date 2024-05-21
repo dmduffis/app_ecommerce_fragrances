@@ -1,7 +1,6 @@
-import { Text, View, Image} from 'react-native'
+import { Text, View, Image, TouchableOpacity } from 'react-native'
 import React, { useContext, useState } from 'react'
 import styles from './carttile.style'
-import { TouchableOpacity } from 'react-native-gesture-handler'
 import {SimpleLineIcons} from '@expo/vector-icons'
 import { COLORS } from '../../constants/theme'
 import { CartContext } from '../../context/CartContext'

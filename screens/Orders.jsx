@@ -1,8 +1,7 @@
 import React from 'react'
-import { Text, View, ActivityIndicator } from 'react-native'
+import { Text, View, ActivityIndicator, TouchableOpacity, FlatList } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from './orders.style';
-import { TouchableOpacity, FlatList} from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 import { COLORS } from '../constants/theme';
 import fetchOrders from '../hook/fetchOrders';

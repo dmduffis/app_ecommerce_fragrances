@@ -1,6 +1,6 @@
 import { StyleSheet, View, Text, ActivityIndicator } from 'react-native'
 import React from 'react'
-import { TouchableOpacity } from 'react-native-gesture-handler'
+import { TouchableOpacity } from 'react-native'
 import { COLORS, SIZES } from '../constants/theme'
 
 const Button = ({title, isValid, loading, onPress, cartLength}) => {

@@ -14,7 +14,7 @@ export default Headings = () => {
         <View style={styles.header}>
             <Text style={styles.headerTitle}>Productos Populares</Text>
             <TouchableOpacity onPress={() => navigation.navigate('Products')}>
-              <Ionicons name='ios-grid' size={24} color={COLORS.secondary} />
+              <Ionicons name='grid' size={24} color={COLORS.secondary} />
             </TouchableOpacity>
         </View>
       </View>

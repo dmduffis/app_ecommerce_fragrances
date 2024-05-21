@@ -1,7 +1,7 @@
 import { Text, View, Image} from 'react-native'
 import React from 'react'
 import styles from './orderstile.style'
-import { TouchableOpacity } from 'react-native-gesture-handler'
+import { TouchableOpacity } from 'react-native'
 import { COLORS } from '../constants/theme'
 
 

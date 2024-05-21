@@ -1,7 +1,5 @@
-import { Text, View } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { Text, View, TouchableOpacity, SafeAreaView } from 'react-native'
 import styles from './products.style';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Ionicons, SimpleLineIcons } from '@expo/vector-icons';
 import { COLORS } from '../constants/theme';
 import { ProductColumn } from '../components';

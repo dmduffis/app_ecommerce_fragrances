@@ -1,11 +1,10 @@
 import React,{ useEffect, useState } from 'react'
-import { Text, View, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { Text, View, TouchableOpacity, ActivityIndicator, FlatList } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import styles from './cart.style';
 import { COLORS } from '../constants/theme';
 import fetchCart  from '../hook/fetchCart';
-import { FlatList } from 'react-native-gesture-handler';
 import CartTile from '../components/cart/CartTile';
 import Button from '../components/Button'
 import AsyncStorage from '@react-native-async-storage/async-storage';

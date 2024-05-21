@@ -1,9 +1,8 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, FlatList, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState,  } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from './favorites.style';
-import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 import { Ionicons, SimpleLineIcons } from '@expo/vector-icons';
 import { COLORS } from '../constants/theme';
 
@@ -55,7 +54,8 @@ export default Favorites = ({navigation}) => {
     }
   }
 
-    
+  console.log(favData)
+
   return (
     <SafeAreaView style={styles.container}>
        <View style={styles.titleRow}>
@@ -76,7 +76,7 @@ export default Favorites = ({navigation}) => {
        <View style={styles.favContainer}> 
         <View style={styles.imgContainer}>
           <Image 
-          source={{uri: item.imageURL}}
+          source={{uri: item.imageUrl}}
           style={styles.image}/>
         </View>
         <View style={styles.txtContainer}>

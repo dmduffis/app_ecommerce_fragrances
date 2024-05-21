@@ -1,9 +1,7 @@
 import React from 'react'
-import { Text, View, TouchableOpacity } from 'react-native'
+import { Text, View, TouchableOpacity, TextInput } from 'react-native'
 import styles from './welcome.style'
-import { COLORS } from '../../constants'
 import { Feather, Ionicons } from '@expo/vector-icons'
-import { TextInput } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
 
 

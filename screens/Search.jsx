@@ -1,11 +1,9 @@
 import React, {useState} from 'react'
-import { TextInput, TouchableOpacity, View, Image, Text} from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { TextInput, TouchableOpacity, View, Image, Text, FlatList, SafeAreaView } from 'react-native'
 import { Feather, Ionicons } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
 import styles from './search.style'
 import axios from 'axios';
-import { FlatList } from 'react-native-gesture-handler';
 import SearchTile from '../components/products/SearchTile';
 
 export default Search = () => {
