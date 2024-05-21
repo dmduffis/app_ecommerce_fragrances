@@ -58,11 +58,10 @@ const styles = StyleSheet.create({
         textTransform: 'capitalize'
     },
    price: {
-        fontFamily: "regular",
+        fontFamily: "semibold",
         fontSize: SIZES.small + 2,
         color: COLORS.gray,
         marginTop: 3,
-        textTransform: 'capitalize'
    },
    hidden: {
     display: 'none',

@@ -47,7 +47,7 @@ export default CartTile = ({item, onPress, select, cartItems, refetch, data}) =>
         <View style={styles.txtContainer}>
             <Text numberOfLines={1} style={styles.productTxt}>{item.cartItem.title}</Text>
             <Text numberOfLines={1} style={styles.supplier}>{item.cartItem.supplier}</Text>
-            <Text numberOfLines={1} style={styles.price}>${(parseFloat(item.cartItem.price) * itemQuantity).toFixed(2)}</Text>
+            <Text numberOfLines={1} style={styles.price}>${(parseFloat(item.cartItem.price) * itemQuantity).toFixed(2)} <Text style={{fontFamily: 'regular'}}>(e. ${parseFloat(item.cartItem.price)}) </Text> </Text>
         </View>
         <View style={{display: 'flex', flexDirection: 'row', gap: 10}}>
             <TouchableOpacity onPress={() => {
