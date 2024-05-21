@@ -9,11 +9,16 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import WebView from 'react-native-webview';
 import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
+import { Toast } from 'toastify-react-native'
 
 
 export default ProductDetails = ({navigation}) => {
 
   const { cartCount, setCartCount } = useContext(CartContext);
+
+  const successToast = () => {
+  Toast.success('Su producto ha sido agregado al carrito.')
+}
 
   const route = useRoute();
   const { item } = route.params;
@@ -71,6 +76,7 @@ export default ProductDetails = ({navigation}) => {
     } else {
       AddToCart(item._id, count)
       setCartCount(prevCount => prevCount + count)
+      successToast();
     }
   }
 
@@ -269,7 +275,7 @@ export default ProductDetails = ({navigation}) => {
 
         <View style={styles.cartRow}>
           <TouchableOpacity onPress={() => handleBuy()} style={styles.cartBtn}>
-            <Text style={styles.cartTitle}>Agrega al Carrito</Text>
+            <Text style={styles.cartTitle}>Comprar Ahora</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={()=> handleCart()} style={styles.addToCart}>
             <Fontisto
