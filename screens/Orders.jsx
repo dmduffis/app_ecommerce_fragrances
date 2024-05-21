@@ -25,7 +25,7 @@ export default Orders = ({navigation}) => {
            />
        </TouchableOpacity>
 
-       <Text style={styles.titleTxt}>Orders</Text>
+       <Text style={styles.titleTxt}>Pedidos</Text>
       </View>
 
       {loading ? (<ActivityIndicator />) 

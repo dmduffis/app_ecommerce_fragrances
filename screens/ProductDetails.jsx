@@ -239,7 +239,7 @@ export default ProductDetails = ({navigation}) => {
         </View>
 
         <View style={styles.descriptionWrapper}>
-            <Text style={styles.description}>Description</Text>
+            <Text style={styles.description}>Descripción</Text>
             <Text style={styles.descriptionTxt}>
            {item.description}
             </Text>
@@ -269,7 +269,7 @@ export default ProductDetails = ({navigation}) => {
 
         <View style={styles.cartRow}>
           <TouchableOpacity onPress={() => handleBuy()} style={styles.cartBtn}>
-            <Text style={styles.cartTitle}>Buy Now</Text>
+            <Text style={styles.cartTitle}>Agrega al Carrito</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={()=> handleCart()} style={styles.addToCart}>
             <Fontisto

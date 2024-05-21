@@ -108,7 +108,7 @@ const onNavigationStateChange = (WebViewState) => {
             />
         </TouchableOpacity>
 
-        <Text style={styles.titleTxt}>Cart</Text>
+        <Text style={styles.titleTxt}>Carrito</Text>
        </View>
 
        {loading ? (<ActivityIndicator/>) 

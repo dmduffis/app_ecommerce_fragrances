@@ -143,7 +143,7 @@ export default Profile = ({navigation}) => {
                     color={COLORS.primary}
                     />
 
-                    <Text style={styles.menuText}>Favorites</Text>
+                    <Text style={styles.menuText}>Favoritos</Text>
                 </View>
               </TouchableOpacity>
 
@@ -155,7 +155,7 @@ export default Profile = ({navigation}) => {
                     color={COLORS.primary}
                     />
 
-                    <Text style={styles.menuText}>Orders</Text>
+                    <Text style={styles.menuText}>Pedidos</Text>
                 </View>
               </TouchableOpacity>
 
@@ -167,19 +167,7 @@ export default Profile = ({navigation}) => {
                     color={COLORS.primary}
                     />
 
-                    <Text style={styles.menuText}>Cart</Text>
-                </View>
-              </TouchableOpacity>
-
-              <TouchableOpacity onPress={()=> clearCache()}>
-                <View style={styles.menuItem(0.2)}>
-                    <MaterialCommunityIcons 
-                    name="cached"
-                    size={24}
-                    color={COLORS.primary}
-                    />
-
-                    <Text style={styles.menuText}>Clear Cache</Text>
+                    <Text style={styles.menuText}>Carrito</Text>
                 </View>
               </TouchableOpacity>
 
@@ -191,7 +179,7 @@ export default Profile = ({navigation}) => {
                     color={COLORS.primary}
                     />
 
-                    <Text style={styles.menuText}>Delete Account</Text>
+                    <Text style={styles.menuText}>Elimine Su Cuenta</Text>
                 </View>
               </TouchableOpacity>
 

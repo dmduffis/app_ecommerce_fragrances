@@ -1,8 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import axios from "axios";
-import { useContext } from "react";
-import { CartContext } from "../context/CartContext";
-import { Cart } from "../screens";
 
 
 export default AddToCart = async (productId, quantity) => {
