@@ -9,7 +9,7 @@ export default AddToCart = async (productId, quantity) => {
         const token = await AsyncStorage.getItem('token');
         const id = await AsyncStorage.getItem('id');
     
-        const endpoint = 'http://localhost:3000/api/cart';
+        const endpoint = 'https://fragrance-ecommerce-backend.up.railway.app/api/cart';
 
         const data = {
             cartItem: productId,

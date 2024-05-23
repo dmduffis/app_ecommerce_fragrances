@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { TextInput, TouchableOpacity, View, Image, Text, FlatList, SafeAreaView } from 'react-native'
+import { TextInput, TouchableOpacity, View, Image, FlatList, SafeAreaView } from 'react-native'
 import { Feather, Ionicons } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
 import styles from './search.style'
@@ -13,7 +13,7 @@ export default Search = () => {
 
   const handlePress = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/products/search/${searchKey}`)
+        const response = await axios.get(`https://fragrance-ecommerce-backend.up.railway.app/api/products/search/${searchKey}`)
         setSearchResults(response.data)
       } catch (error) {
         console.log('Estamos experimentando un problema.', error)

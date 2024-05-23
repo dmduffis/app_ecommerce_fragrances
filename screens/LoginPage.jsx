@@ -41,7 +41,7 @@ export default LoginPage = ({navigation}) => {
       setLoading(true)
       
       try {
-        const endpoint = "http://localhost:3000/api/login"
+        const endpoint = "https://fragrance-ecommerce-backend.up.railway.app/api/login"
         const data = values;
 
         const response = await axios.post(endpoint, data)

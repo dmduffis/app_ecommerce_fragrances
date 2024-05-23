@@ -22,7 +22,7 @@ export default CartTile = ({item, onPress, select, cartItems, refetch, data}) =>
             const id = await AsyncStorage.getItem('id');
             const token = await AsyncStorage.getItem('token');
         
-            const response = await fetch(`http://localhost:3000/api/cart/${item._id}`, {
+            const response = await fetch(`https://fragrance-ecommerce-backend.up.railway.app/api/cart/${item._id}`, {
               method: 'DELETE',
               headers: {
                 'Content-Type': 'application/json',

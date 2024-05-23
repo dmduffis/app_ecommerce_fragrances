@@ -15,7 +15,7 @@ export default fetchOrders = () => {
             const token = await AsyncStorage.getItem('token');
             const id = await AsyncStorage.getItem('id');
             
-            const endpoint = `http://localhost:3000/api/orders`;
+            const endpoint = `https://fragrance-ecommerce-backend.up.railway.app/api/orders`;
 
             const headers = {
                 'Content-Type': 'application/json',

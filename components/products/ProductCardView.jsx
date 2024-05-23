@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import styles from './productCardView.style'
 import {Ionicons} from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import AddToCart from '../../hook/addToCart'
 import addToCartNotify from '../../hook/addToCartNotify';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useContext } from 'react';

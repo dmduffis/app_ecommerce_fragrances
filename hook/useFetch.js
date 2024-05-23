@@ -12,7 +12,7 @@ const fetchData = async () => {
     setIsLoading(true)
 
     try {
-        const response = await axios.get('http://localhost:3000/api/products/')
+        const response = await axios.get('https://fragrance-ecommerce-backend.up.railway.app/api/products/')
         setData(response.data)
         setIsLoading(false)
     } catch (error) {
