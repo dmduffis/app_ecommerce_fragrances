@@ -1,8 +1,8 @@
-# Case Study: Designing an eCommerce Perfume App for Latina Women in Latin America
+# Case Study: Designing an eCommerce Self-Care App for Latina Women in Latin America
 
 ## Define:
 
-**Problem Statement:** There's a need for a cross-platform eCommerce perfume application targeting women in Caribbean Latin America, aged between 25-45.
+**Problem Statement:** There's a need for a cross-platform eCommerce sel-care application targeting women in Caribbean Latin America, aged between 25-45.
 
 **Requirements:**
 - Develop a visually appealing, culturally sensitive perfume app.
