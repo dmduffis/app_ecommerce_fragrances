@@ -1,4 +1,4 @@
-![Alt text](https://res.cloudinary.com/dbob6dlo0/image/upload/v1717466310/ecommerce_02_i54sti.png)
+![Alt text](https://res.cloudinary.com/dbob6dlo0/image/upload/v1724085127/ecommerce_02_i54sti_paj0zz.png)
 
 # Objective
 Design a cross-platform eCommerce self-care application catering to Latina women in Caribbean Latin America, aged 25-45, targeting the Android platform due to its prevalence in the region.
