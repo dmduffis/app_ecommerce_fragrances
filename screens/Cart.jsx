@@ -19,7 +19,7 @@ const {cartData, setCartData, subTotal, setSubTotal} = useContext(CartContext);
 
 const [selected, setSelected] = useState(null);
 const [select, setSelect] = useState(false)
-const[count, setCount] = useState(1);
+const[count, setCount] = useState(0);
 const [paymentUrl, setPaymentUrl] = useState('');
 
 useEffect(() => {

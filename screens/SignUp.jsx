@@ -44,10 +44,10 @@ export default SignUp = ({navigation}) => {
       }
 
 const registerUser = async (values) => {
-    setLoader(true);
+    setLoading(true);
 
     try {
-        const endpoint ="http://localhost:3000/api/register";
+        const endpoint ="https://fragrance-ecommerce-backend.up.railway.app/api/register";
         const data = values;
         const response = await axios.post(endpoint, data)
 
@@ -71,7 +71,7 @@ return (
             style={styles.coverRegistration}
             />
             <Text style={styles.title}>
-                Luxurious Vacation Stays 
+                Latina Botique
             </Text>
 
             <Formik 
